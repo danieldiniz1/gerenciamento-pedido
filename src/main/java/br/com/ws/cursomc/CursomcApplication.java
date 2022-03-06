@@ -37,15 +37,15 @@ public class CursomcApplication implements CommandLineRunner {
 		Optional<Categoria> cat1 = categoriaRepository.findById(1L);
 		Optional<Categoria> cat2 = categoriaRepository.findById(2L);
 
-		cat1.get().setProdutos(Arrays.asList(p1.get(),p2.get(),p3.get()));
-		cat2.get().setProdutos(Arrays.asList(p2.get()));
-
-		p1.get().setCategorias(Arrays.asList(cat1.get()));
-		p2.get().setCategorias(Arrays.asList(cat1.get(),cat2.get()));
-		p3.get().setCategorias(Arrays.asList(cat1.get()));
-
-		categoriaRepository.saveAll(Arrays.asList(cat1.get(),cat2.get()));
-		produtoRepository.saveAll(Arrays.asList(p1.get(),p2.get(),p3.get()));
+//		cat1.get().setProdutos(Arrays.asList(p1.get(),p2.get(),p3.get()));
+//		cat2.get().setProdutos(Arrays.asList(p2.get()));
+//
+//		p1.get().setCategorias(Arrays.asList(cat1.get()));
+//		p2.get().setCategorias(Arrays.asList(cat1.get(),cat2.get()));
+//		p3.get().setCategorias(Arrays.asList(cat1.get()));
+//
+//		categoriaRepository.saveAll(Arrays.asList(cat1.get(),cat2.get()));
+//		produtoRepository.saveAll(Arrays.asList(p1.get(),p2.get(),p3.get()));
 
 	}
 }
