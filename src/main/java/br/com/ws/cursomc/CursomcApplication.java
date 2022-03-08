@@ -1,6 +1,7 @@
 package br.com.ws.cursomc;
 
 import br.com.ws.cursomc.domain.*;
+import br.com.ws.cursomc.domain.enums.EstadoPagamento;
 import br.com.ws.cursomc.domain.enums.TipoCliente;
 import br.com.ws.cursomc.repositories.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +10,8 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import java.math.BigDecimal;
+import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Optional;
@@ -34,12 +37,37 @@ public class CursomcApplication implements CommandLineRunner {
 	@Autowired
 	ClienteRepository clienteRepository;
 
+	@Autowired
+	PedidoRepository pedidoRepository;
+
+	@Autowired
+	PagamentoRepository pagamentoRepository;
+
 	public static void main(String[] args) {
 		SpringApplication.run(CursomcApplication.class, args);
 	}
 
 	@Override
 	public void run(String... args) throws Exception {
+
+//		Adicionando instancias de pedido
+//		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy hh:mm");
+//		Cliente maria = clienteRepository.getById(1L);
+//
+//		Pedido pedido1 = new Pedido(null,sdf.parse("30/09/2017 10:45"), maria , enderecoRepository.getById(1L));
+//		Pedido pedido2 = new Pedido(null,sdf.parse("10/10/2017 10:45"), maria , enderecoRepository.getById(2L));
+//
+//		Pagamento pagamento1 = new PagamentoComCartao(null, EstadoPagamento.QUITADO,pedido1,3);
+//		pedido1.setPagamento(pagamento1);
+//		Pagamento pagamento2 = new PagamentoComBoleto(null,EstadoPagamento.PENDENTE,pedido2,sdf.parse("10/12/2017 23:59"),null);
+//		pedido2.setPagamento(pagamento2);
+//
+//		maria.setPedidos(Arrays.asList(pedido1,pedido2));
+//
+//		pedidoRepository.saveAll(Arrays.asList(pedido1,pedido2));
+//		pagamentoRepository.saveAll(Arrays.asList(pagamento1,pagamento2));
+//		clienteRepository.save(maria);
+
 
 
 //		Adicionando cliente e endereço
