@@ -41,16 +41,18 @@ public class CursomcApplication implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 
-		Cliente maria = new Cliente(null,"Maria Silva", "maria@email.com","36321541", TipoCliente.PESSOA_FISICA);
-		maria.getTelefones().addAll(Arrays.asList("12345678", "789456321"));
 
-		Endereco e1 = new Endereco(null, "rua flores","126","bloco 08","jardim","38220834",maria,cidadeRepository.getById(6L));
-		Endereco e2 = new Endereco(null, "Avenida Matos","105","","centro","387770012",maria,cidadeRepository.getById(5L));
-
-		maria.getEnderecos().addAll(Arrays.asList(e1,e2));
-
-		clienteRepository.save(maria);
-		enderecoRepository.saveAll(Arrays.asList(e1,e2));
+//		Adicionando cliente e endereço
+//		Cliente pedro = new Cliente(null,"Pedro", "pedro@email.com","12394565", TipoCliente.PESSOA_FISICA);
+//		pedro.getTelefones().addAll(Arrays.asList("123456"));
+//
+//		Endereco e1 = new Endereco(null, "rua tres","1611","bloco 0852","jardim2","38450854",pedro,cidadeRepository.getById(6L));
+//		Endereco e2 = new Endereco(null, "Avenida Matos 23","10543","","centro2","387210025",pedro,cidadeRepository.getById(5L));
+//
+//		pedro.getEnderecos().addAll(Arrays.asList(e1,e2));
+//
+//		clienteRepository.save(pedro);
+//		enderecoRepository.saveAll(Arrays.asList(e1,e2));
 
 //		instanciando cidades e estados
 //		Estado mg = new Estado(null, "Minas Gerais");
