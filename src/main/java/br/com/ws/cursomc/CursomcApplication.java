@@ -43,12 +43,37 @@ public class CursomcApplication implements CommandLineRunner {
 	@Autowired
 	PagamentoRepository pagamentoRepository;
 
+	@Autowired
+	ItemPedidoRepository itemPedidoRepository;
+
 	public static void main(String[] args) {
 		SpringApplication.run(CursomcApplication.class, args);
 	}
 
 	@Override
 	public void run(String... args) throws Exception {
+
+//		Adicionando ItemPedido
+
+//		Optional<Pedido> pedido1 = pedidoRepository.findById(1L);
+//		Optional<Pedido> pedido2 = pedidoRepository.findById(2L);
+//		Optional<Produto> produto1 = produtoRepository.findById(1L);
+//		Optional<Produto> produto2 = produtoRepository.findById(2L);
+//		Optional<Produto> produto3 = produtoRepository.findById(3L);
+//
+//		ItemPedido itemPedido1 = new ItemPedido(pedido1.get(),produto1.get(),BigDecimal.ZERO,2,produto1.get().getPreco());
+//		ItemPedido itemPedido2 = new ItemPedido(pedido1.get(),produto3.get(),BigDecimal.ZERO,2,produto3.get().getPreco());
+//		ItemPedido itemPedido3 = new ItemPedido(pedido2.get(),produto2.get(),new BigDecimal("100.00"),1,produto2.get().getPreco());
+
+//		pedido1.get().getItens().addAll(Arrays.asList(itemPedido1,itemPedido2));
+//		pedido2.get().getItens().add(itemPedido3);
+//
+//		produto1.get().getItens().add(itemPedido1);
+//		produto2.get().getItens().add(itemPedido3);
+//		produto3.get().getItens().add(itemPedido2);
+
+		itemPedidoRepository.saveAll(Arrays.asList(itemPedido1,itemPedido2,itemPedido3));
+
 
 //		Adicionando instancias de pedido
 //		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy hh:mm");
