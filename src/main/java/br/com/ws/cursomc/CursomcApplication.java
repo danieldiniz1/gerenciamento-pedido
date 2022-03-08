@@ -1,13 +1,8 @@
 package br.com.ws.cursomc;
 
-import br.com.ws.cursomc.domain.Categoria;
-import br.com.ws.cursomc.domain.Cidade;
-import br.com.ws.cursomc.domain.Estado;
-import br.com.ws.cursomc.domain.Produto;
-import br.com.ws.cursomc.repositories.CategoriaRepository;
-import br.com.ws.cursomc.repositories.CidadeRepository;
-import br.com.ws.cursomc.repositories.EstadoRepository;
-import br.com.ws.cursomc.repositories.ProdutoRepository;
+import br.com.ws.cursomc.domain.*;
+import br.com.ws.cursomc.domain.enums.TipoCliente;
+import br.com.ws.cursomc.repositories.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -15,6 +10,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import java.math.BigDecimal;
 import java.util.Arrays;
+import java.util.HashSet;
 import java.util.Optional;
 
 @SpringBootApplication
@@ -32,6 +28,12 @@ public class CursomcApplication implements CommandLineRunner {
 	@Autowired
 	CidadeRepository cidadeRepository;
 
+	@Autowired
+	EnderecoRepository enderecoRepository;
+
+	@Autowired
+	ClienteRepository clienteRepository;
+
 	public static void main(String[] args) {
 		SpringApplication.run(CursomcApplication.class, args);
 	}
@@ -39,7 +41,16 @@ public class CursomcApplication implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 
+		Cliente maria = new Cliente(null,"Maria Silva", "maria@email.com","36321541", TipoCliente.PESSOA_FISICA);
+		maria.getTelefones().addAll(Arrays.asList("12345678", "789456321"));
 
+		Endereco e1 = new Endereco(null, "rua flores","126","bloco 08","jardim","38220834",maria,cidadeRepository.getById(6L));
+		Endereco e2 = new Endereco(null, "Avenida Matos","105","","centro","387770012",maria,cidadeRepository.getById(5L));
+
+		maria.getEnderecos().addAll(Arrays.asList(e1,e2));
+
+		clienteRepository.save(maria);
+		enderecoRepository.saveAll(Arrays.asList(e1,e2));
 
 //		instanciando cidades e estados
 //		Estado mg = new Estado(null, "Minas Gerais");
