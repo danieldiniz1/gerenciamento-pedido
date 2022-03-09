@@ -1,6 +1,7 @@
 package br.com.ws.cursomc.domain;
 
 import br.com.ws.cursomc.domain.enums.TipoCliente;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import javax.persistence.*;
@@ -28,6 +29,7 @@ public class Cliente implements Serializable {
     private List<Endereco> enderecos = new ArrayList<>();
 
     @OneToMany()
+    @JsonBackReference
     private List<Pedido> pedidos = new ArrayList<>();
 
     public Cliente() {
